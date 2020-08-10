@@ -91,6 +91,18 @@ ratings['rating'].hist(bins=70)
 sns.jointplot(x='rating',y='num of ratings',data=ratings,alpha=0.5)
 ```
 
+<img src= "https://user-images.githubusercontent.com/66487971/89821699-b0055a80-db57-11ea-9fd3-296246b077cd.png" width = 700>
+
+# Recommending Similar Movies
+
+```python
+
+moviemat = df.pivot_table(index='user_id',columns='title',values='rating')
+moviemat.head()
+
+```
+
+
 
 
 
