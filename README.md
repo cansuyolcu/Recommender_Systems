@@ -43,7 +43,7 @@ sns.set_style('white')
 df.groupby('title')['rating'].mean().sort_values(ascending=False).head()
 ```
 
-<img src= "https://user-images.githubusercontent.com/66487971/89820974-81d34b00-db56-11ea-8615-80438ce2f109.png" width = 250>
+<img src= "https://user-images.githubusercontent.com/66487971/89820974-81d34b00-db56-11ea-8615-80438ce2f109.png" width = 350>
 
 
 ```python
@@ -67,7 +67,7 @@ ratings['num of ratings'] = pd.DataFrame(df.groupby('title')['rating'].count())
 ratings.head()
 ```
 
-<img src= "https://user-images.githubusercontent.com/66487971/89821241-f8704880-db56-11ea-8646-acd986be74b8.png" width = 250>
+<img src= "https://user-images.githubusercontent.com/66487971/89821241-f8704880-db56-11ea-8646-acd986be74b8.png" width = 350>
 
 ```python
 
@@ -77,6 +77,20 @@ ratings['num of ratings'].hist(bins=70)
 ```
 
 <img src= "https://user-images.githubusercontent.com/66487971/89821339-19d13480-db57-11ea-95dd-ecf58b678c21.png" width = 700>
+
+```python
+
+plt.figure(figsize=(10,4))
+ratings['rating'].hist(bins=70)
+
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/89821523-6157c080-db57-11ea-8fb3-941f2f0f2d8b.png" width = 700>
+
+```python
+sns.jointplot(x='rating',y='num of ratings',data=ratings,alpha=0.5)
+```
+
 
 
 
