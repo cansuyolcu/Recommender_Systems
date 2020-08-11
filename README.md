@@ -91,7 +91,7 @@ ratings['rating'].hist(bins=70)
 sns.jointplot(x='rating',y='num of ratings',data=ratings,alpha=0.5)
 ```
 
-<img src= "https://user-images.githubusercontent.com/66487971/89821699-b0055a80-db57-11ea-9fd3-296246b077cd.png" width = 700>
+<img src= "https://user-images.githubusercontent.com/66487971/89821699-b0055a80-db57-11ea-9fd3-296246b077cd.png" width = 550>
 
 # Recommending Similar Movies
 
@@ -101,6 +101,49 @@ moviemat = df.pivot_table(index='user_id',columns='title',values='rating')
 moviemat.head()
 
 ```
+
+<img src= "https://user-images.githubusercontent.com/66487971/89870407-7582d880-dbbe-11ea-80d2-c2857cee44d0.png" width = 1000>
+
+
+```python
+ratings.sort_values('num of ratings',ascending=False).head(10)
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/89870611-c8f52680-dbbe-11ea-9662-856ec432d239.png" width = 300>
+
+I choose Star Wars, a sci-fi movie. And Liar Liar, a comedy.
+
+```python
+
+starwars_user_ratings = moviemat['Star Wars (1977)']
+liarliar_user_ratings = moviemat['Liar Liar (1997)']
+
+```
+
+# Cleaning Nan values and getting correlations
+
+
+```python
+corr_starwars = pd.DataFrame(similar_to_starwars,columns=['Correlation'])
+corr_starwars.dropna(inplace=True)
+corr_starwars.head()
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/89871119-8bdd6400-dbbf-11ea-9d54-0b0951f07029.png" width = 200>
+
+
+Now if I sort the dataframe by correlation, I get the most similar movies, however I get some results that don't really make sense. This is because there are a lot of movies only watched once by users who also watched Star Wars.
+
+```python
+
+corr_starwars.sort_values('Correlation',ascending=False).head(10)
+```
+
+
+<img src= "https://user-images.githubusercontent.com/66487971/89871274-d52db380-dbbf-11ea-90fc-dc78c54c626c.png" width = 500>
+
+
+
 
 
 
