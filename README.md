@@ -1,12 +1,12 @@
-## Recommender_Systems
+# Recommender_Systems
 In this project I focus on providing a basic recommendation system by suggesting movies.
-# Importing Libraries
+## Importing Libraries
 
 ```python
 import numpy as np
 import pandas as pd
 ```
-# Getting the Data
+## Getting the Data
 
 ```python
 column_names = ['user_id', 'item_id', 'rating', 'timestamp']
@@ -93,7 +93,7 @@ sns.jointplot(x='rating',y='num of ratings',data=ratings,alpha=0.5)
 
 <img src= "https://user-images.githubusercontent.com/66487971/89821699-b0055a80-db57-11ea-9fd3-296246b077cd.png" width = 550>
 
-# Recommending Similar Movies
+## Recommending Similar Movies
 
 ```python
 
@@ -120,7 +120,7 @@ liarliar_user_ratings = moviemat['Liar Liar (1997)']
 
 ```
 
-# Cleaning Nan values and getting correlations
+## Cleaning Nan values and getting correlations
 
 
 ```python
