@@ -143,6 +143,41 @@ corr_starwars.sort_values('Correlation',ascending=False).head(10)
 <img src= "https://user-images.githubusercontent.com/66487971/89871274-d52db380-dbbf-11ea-90fc-dc78c54c626c.png" width = 500>
 
 
+Now I filter out movies that have less than 50 reviews.
+
+```python
+corr_starwars = corr_starwars.join(ratings['num of ratings'])
+corr_starwars.head()
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/89871823-bbd93700-dbc0-11ea-961b-435538ed2e83.png" width = 250>
+
+```python
+
+corr_starwars[corr_starwars['num of ratings']>50].sort_values('Correlation',ascending=False).head()
+
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/89871960-e88d4e80-dbc0-11ea-9d9b-f9a51a037621.png" width = 250>
+
+```python
+corr_liarliar = pd.DataFrame(similar_to_liarliar,columns=['Correlation'])
+corr_liarliar.dropna(inplace=True)
+corr_liarliar = corr_liarliar.join(ratings['num of ratings'])
+corr_liarliar[corr_liarliar['num of ratings']>50].sort_values('Correlation',ascending=False).head()
+
+```
+
+<img src= "https://user-images.githubusercontent.com/66487971/89872115-25f1dc00-dbc1-11ea-9b15-5a27c0b65484.png" width = 250>
+
+
+I have found couple of recommendations with okay correlations for both Star Wars and Liar Liar viewers.
+
+
+## This concludes my project here. Thanks for reading all the way through.
+
+
+
 
 
 
